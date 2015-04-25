@@ -79,6 +79,10 @@ module.exports = function (param) {
 
 				// return result or error msg from freemarker engine
 				file.contents = new Buffer(out || msg);
+
+				//Hack to replace .json to .html
+				file.path = file.path.replace('.json', '.html');
+
 				_this.push(file);
 				return callback();
 			});
