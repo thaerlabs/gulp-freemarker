@@ -38,6 +38,11 @@ module.exports = function (param) {
 			file.contents.on('end', function() {
 				var mockData = JSON.parse(mockDataTxt);
 				Fm.render(mockData.tpl, mockData.data, function(err, out, msg) {
+
+					if (err) {
+						return callback(err);
+					}
+					
 					var stream = through();
 
 					stream.write(out || msg);

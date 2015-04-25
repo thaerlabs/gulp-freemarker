@@ -15,23 +15,23 @@ var gutil = require("gulp-util"),
 describe("gulp-freemarker", function () {
 
 	var expectedFile = new gutil.File({
-		path: "test/expected/hello.txt",
-		cwd: "test/",
-		base: "test/expected",
-		contents: fs.readFileSync("test/expected/hello.txt")
+		path: __dirname + "/expected/hello.txt",
+		cwd: __dirname + "/",
+		base: __dirname + "/expected",
+		contents: fs.readFileSync(__dirname + "/expected/hello.txt")
 	});
 
 	it("should produce expected file via buffer", function (done) {
 
 		var srcFile = new gutil.File({
-			path: "test/fixtures/hello.json",
-			cwd: "test/",
-			base: "test/fixtures",
-			contents: fs.readFileSync("test/fixtures/hello.json")
+			path: __dirname + "/fixtures/hello.json",
+			cwd: __dirname + "/",
+			base: __dirname + "/fixtures",
+			contents: fs.readFileSync(__dirname + "/fixtures/hello.json")
 		});
 
 		var stream = freemarker({
-			viewRoot: 'test/fixtures',
+			viewRoot: __dirname + "/fixtures",
 			options: {}
 		});
 
