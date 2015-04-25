@@ -68,6 +68,10 @@ module.exports = function (param) {
 			// process template with mock data
 			Fm.render(mockData.tpl, mockData.data, function(err, out, msg) {
 
+				if (err) {
+					return callback(err);
+				}
+
 				// return result or error msg from freemarker engine
 				file.contents = new Buffer(out || msg);
 				_this.push(file);
